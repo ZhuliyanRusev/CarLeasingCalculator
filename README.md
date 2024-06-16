@@ -16,3 +16,5 @@ Where:
 	C is the principal loan amount (the car value minus the down payment).
 	r is the monthly interest rate.
 	n is the number of monthly payments (the lease period in months).
+
+Please download the readme file to see the formula in better detail.
