@@ -43,14 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const period = parseInt(leasePeriod.value);
         const downPaymentPercent = parseInt(downPayment.value);
         const downPaymentAmountValue = (carPrice * downPaymentPercent) / 100;
-        let interestRateValue = carType.value === 'brand-new' ? 2.99 : 3.7;
-        let totalCost = (carPrice - downPaymentAmountValue) * (1 + (interestRateValue / 100) * (period / 12));
-        let monthlyPayment = totalCost / period;
+        const loanAmount = carPrice - downPaymentAmountValue;
+        const annualInterestRate = carType.value === 'brand-new' ? 2.99 : 3.7;
+        const monthlyInterestRate = annualInterestRate / 100 / 12;
+
+        const monthlyPayment = (loanAmount * monthlyInterestRate) / (1 - (1 / Math.pow(1 + monthlyInterestRate, period)));
+        const totalCost = (monthlyPayment * period) + downPaymentAmountValue;
 
         totalLeasingCost.innerText = totalCost.toFixed(2);
         downPaymentAmount.innerText = downPaymentAmountValue.toFixed(2);
         monthlyInstallment.innerText = monthlyPayment.toFixed(2);
-        interestRate.innerText = `${interestRateValue.toFixed(2)}%`;
+        interestRate.innerText = `${annualInterestRate.toFixed(2)}%`;
     };
 
     carValue.addEventListener('input', updateCarValue);
