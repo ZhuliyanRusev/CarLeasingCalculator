@@ -5,7 +5,7 @@ the form to be flex, changed the corners of the calculator to be round with bord
 For the Javascript - I have used the following formula:
 
 A=C [         r          ]
-          
+          __________
           1 - (1 + r)nth degree
        
 
