@@ -4,9 +4,9 @@ I have made a minimum range and maximum range. The blue lines are targeting the 
 the form to be flex, changed the corners of the calculator to be round with border-radius, because it looks better, changed the form fields to be pill-shaped and remade their colors.
 For the Javascript - I have used the following formula:
 
-
 A=C [         r          ]
-    1 - (1 + r)nth degree
+          
+          1 - (1 + r)nth degree
        
 
 Where:
